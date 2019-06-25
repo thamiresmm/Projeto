@@ -1,0 +1,336 @@
+#include <stdio.h>
+
+struct matriz{
+    int nlinhas;
+    int ncolunas;
+    float m[50][50];
+};
+//foi criado matrizes que sao variaveis globais
+struct matriz A, B, C;
+//caso seja escolhido o 1 vem para ca
+//em q nlinhas eh o numero de linhas e ncoluna numero de //colunas
+void tamanhoA(){
+    printf("digite o numero de linhas\n");
+    scanf("%d", &A.nlinhas);
+    if ((A.nlinhas<1)||(A.nlinhas>50)){
+        printf("ERRO\n");
+    }
+    else {
+        printf("digite o numero de colunas\n");
+        scanf("%d", &A.ncolunas);
+        if ((A.ncolunas<1)||(A.ncolunas>50)){
+            printf("ERRO\n");
+        }
+        else{
+            printf("DEU CERTOOOO\n");
+        }
+    }
+}
+//caso seja escolhido o 2 vem para ca 
+void tamanhoB(){
+    printf("digite o numero de linhas\n");
+    scanf("%d", &B.nlinhas);
+    if ((B.nlinhas<1)||(B.nlinhas>50)){
+        printf("ERRO\n");
+    }
+    else {
+        printf("digite o numero de colunas\n");
+        scanf("%d", &B.ncolunas);
+        if ((B.ncolunas<1)||(B.ncolunas>50)){
+            printf("ERRO\n");
+        }
+        else{
+            printf("DEU CERTOOOO\n");
+        }
+    }
+
+}
+//caso escolha 3 vem para ca 
+//i eh cada ponto da linha e j coluna 
+void valoresA(){
+    int i, j;
+    for(i=0;i<A.nlinhas;i++){
+        for(j=0;j<A.ncolunas; j++){
+            A.m[i][j] = rand() % 50;
+        }
+    }
+    printf("deu certo\n");
+}
+//caso seja escolhido 4 
+//i e j representam cada linhas e colunas respectivamente 
+void valoresB(){
+    int i, j;
+    for(i=0;i<B.nlinhas;i++){
+        for(j=0;j<B.ncolunas; j++){
+            B.m[i][j]=rand()%50;
+        }
+    }
+    printf("deu certo\n");
+}
+//caso seja escolhido 5 vem para ca
+//i e j são cada linha e coluna respectivamente
+//A.m[i][j] representa a matriz A
+void manualA(){
+    int i,j;
+    for(i=0;i<A.nlinhas;i++){
+        for(j=0;j<A.ncolunas;j++){
+            printf("digite um valor\n");
+            scanf("%f", &A.m[i][j]);
+        }
+    }
+}
+//caso 6 seja escolhido vem pra ca 
+//i e j sao cada linha e coluna respectivamente
+//B.m[i][j] representa a matriz B
+void manualB(){
+    int i,j;
+    for(i=0;i<B.nlinhas;i++){
+        for(j=0;j<B.ncolunas;j++){
+            printf("digite um valor\n");
+            scanf("%f", &B.m[i][j]);
+        }
+    }
+}
+//caso seja escolhido o 7 vem pra ca 
+// A.m[i][j] B.m[i][j] C.m[i][j] sao matrizes
+// i e j sao linhas e colunas respectivamente
+void soma(){
+    int i, j;
+    if((A.nlinhas==B.nlinhas)&&(A.ncolunas==B.ncolunas)){
+        for(i=0;i<A.nlinhas;i++){
+            for(j=0;j<A.ncolunas;j++){
+                C.m[i][j]=A.m[i][j]+B.m[i][j];
+            }
+        }
+        printf("deu certo\n");
+    }
+    else{
+        printf("existe diferença entre os tamanhos de linhas e colunas");
+    }
+}
+//se vc escolher 8 vem para ca 
+void subtracao(){
+    int i, j;
+    if((A.nlinhas==B.nlinhas)&&(A.ncolunas==B.ncolunas)){
+        for(i=0;i<A.nlinhas;i++){
+            for(j=0;j<A.ncolunas;j++){
+                C.m[i][j]=A.m[i][j]-B.m[i][j];
+            }
+        }
+        printf("deu certo\n");
+    }
+    else{
+        printf("existe diferença entre os tamanhos de linhas e colunas");
+    }
+}
+// se a escolha for 9 vem para ca 
+// k eh uma nova variavel que ajuda na multiplicacao ja que 
+// ela n eh tao simples
+// k auxilia no numero de linhas 
+void multiplicacao(){
+    int k, i, j;
+    if(A.ncolunas==B.nlinhas){
+        for (i=0;i<A.nlinhas;i++){
+            for(j=0;j<B.ncolunas;j++){
+                C.m[i][j]=0;
+                for(k=0;k<A.nlinhas;k++){
+                    C.m[i][j]=C.m[i][j]+A.m[i][k]*B.m[k][j];
+                }
+            }
+        }
+    }
+    else{
+        printf("o numero de colunas de A e o numero de linhas de B tem que ser iguais\n");
+    }
+}
+//caso a escolha seja 10 vem para ca
+//i e j sao linhas e colunas respectivamente
+//A.m[i][j] representa matriz A
+void imprimirA(){
+    int i, j;
+    for(i=0;i<A.nlinhas;i++){
+        for(j=0;j<A.ncolunas;j++){
+            printf("%6.2f ", A.m[i][j]);
+        }
+        printf("\n");
+    }
+}
+//caso escolha 11 vem para ca
+//i e j sao linhas e colunas 
+void imprimirB(){
+    int i, j;
+    for(i=0;i<B.nlinhas;i++){
+        for(j=0;j<B.ncolunas;j++){
+            printf("%6.2f ", B.m[i][j]);
+        }
+        printf("\n");
+    }
+}
+//caso escolha 12 vem para ca
+void imprimirC(){
+    int i, j;
+    for(i=0;i<B.nlinhas;i++){
+        for(j=0;j<B.ncolunas;j++){
+            printf("%6.2f ", C.m[i][j]);
+        }
+        printf("\n");
+    }
+}
+// caso escolha 13 vem para ca 
+//a partir daqui foi trabalhado com arquivos 
+//esse caso foi apenas pra leitura
+// a variavel eh do tipo char
+void arquivoA(){
+    int i, j;
+    char endereco[50];
+    FILE *arquivo;
+    printf("digite o nome do arquivo de A\n");
+    scanf("%s", endereco);
+    if(arquivo==NULL){
+        printf("erro\n");
+    }
+    else{
+//fopen eh para abrir  o arquivo 
+// r classifica como modo de leitura nao podendo alterar 
+// o arquivo    
+        arquivo= fopen(endereco,"r");
+//fscanf eh usado quando trabalhado com arquivo    
+        fscanf(arquivo, "%d %d", &A.nlinhas, &A.ncolunas);
+        for(i=0;i<A.nlinhas;i++){
+            for(j=0;j<A.ncolunas;j++){
+                fscanf(arquivo, "%f", &A.m[i][j]);
+            }
+        }
+    printf("deu certo\n");
+    }
+//fclose eh para fechar o arquivo    
+fclose(arquivo);
+}
+//quando eh escolhido 14 vem para ca
+//tambem esta no modo leitura (eh indicando pelo w)
+// o que esta sendo feito eh o mesmo que o do anterior 
+// a diferenca eh que esta destinado a matriz B
+void arquivoB(){
+    int i, j;
+    char endereco[50];
+    FILE *arquivo;
+    printf("digite o nome do arquivo de B\n");
+    scanf("%s", endereco);
+    if(arquivo==NULL){
+        printf("erro\n");
+    }
+    else{
+        arquivo= fopen(endereco,"r");
+        fscanf(arquivo, "%d %d", &B.nlinhas, &B.ncolunas);
+        for(i=0;i<B.nlinhas;i++){
+            for(j=0;j<B.ncolunas;j++){
+                fscanf(arquivo, "%f", &B.m[i][j]);
+            }
+        }
+    printf("deu certo\n");
+    }
+fclose(arquivo);
+}
+//caso seja escolhido 15 vem para ca
+// esta no modo escrita 
+//aqui se cria um novo arquivo baseado nas matrizes A e B
+void arquivoC(){
+    int i, j;
+    char endereco[50];
+    FILE *arquivo;
+    printf("digite o nome do arquivo de C\n");
+    scanf("%s", endereco);
+    if(arquivo==NULL){
+        printf("erro\n");
+    }
+    else{
+        arquivo=fopen(endereco, "w");
+        for(i=0;i<A.nlinhas;i++){
+            for(j=0;j<B.ncolunas;j++){
+                fprintf(arquivo, "%f", C.m[i][j]);
+            }
+            fprintf(arquivo, "\n");
+        }
+        printf("deu certo\n");
+        fclose(arquivo);
+    }
+
+    }
+//parte principal onde possui as opcoes que serao selecionadas    
+int main()
+{
+    int diferente=0;
+    do{
+        int escolha;
+        printf("(1) Definir o tamanho da matriz A\n"
+               "(2) Definir o tamanho da matriz B\n"
+               "(3) Preencher a matriz A com valores aleatorios\n"
+               "(4) Preencher a matriz B com valores aleatorios\n"
+               "(5) Atribuir valores manualmente para os elementos da matriz A\n"
+               "(6) Atribuir valores manualmente para os elementos da matriz B\n"
+               "(7) Calcular A+B\n"
+               "(8) Calcular A-B\n"
+               "(9) Calcular A*B\n"
+               "(10) Imprimir matriz A\n"
+               "(11) Imprimir matriz B\n"
+               "(12) Imprimir matriz C\n"
+               "(13) Ler a matriz A de um arquivo\n"
+               "(14) Ler a matriz B de um arquivo\n"
+               "(15) Escrever a matriz C em um arquivo\n"
+               "(16) Sair\n");
+        printf("digite sua opcao\n");
+        scanf("%d", &escolha);
+//caso as opcoes seja escolhidas o que acontece sendo encaminhado para outra funcao        
+        if (escolha==1){
+            tamanhoA();
+        }
+        else if(escolha==2){
+            tamanhoB();
+        }
+        else if(escolha==3){
+            valoresA();
+        }
+        else if(escolha==4){
+            valoresB();
+        }
+        else if(escolha==5){
+            manualA();
+        }
+        else if(escolha==6){
+            manualB();
+        }
+        else if(escolha==7){
+            soma();
+        }
+        else if(escolha==8){
+            subtracao();
+        }
+        else if(escolha==9){
+            multiplicacao();
+        }
+        else if(escolha==10){
+            imprimirA();
+        }
+        else if(escolha==11){
+            imprimirB();
+        }
+        else if(escolha==12){
+            imprimirC();
+        }
+        else if(escolha==13){
+            arquivoA();
+        }
+        else if(escolha==14){
+            arquivoB();
+        }
+        else if(escolha==15){
+            arquivoC();
+        }
+//caso essa opcao seja escolhida fecha as outras opcoes de 
+//escolha          
+        else if(escolha==16){
+            diferente=1;
+        }
+    }while(diferente==0);
+    return 0;
+}
